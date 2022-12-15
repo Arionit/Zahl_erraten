@@ -1,0 +1,30 @@
+try
+{
+
+    Console.Write("Rate...(1 - 1000): ");
+    int Spieler = Int32.Parse(Console.ReadLine());
+    Random zufall = new Random();
+    int zufall_zahl = zufall.Next(1, 1000);
+    int versuche = 1;
+
+    while (Spieler != zufall_zahl)
+    {
+        if (Spieler > zufall_zahl)
+        {
+            versuche = versuche + 1;
+            Console.WriteLine("Weniger...Rate nochmal: ");
+            Spieler = Int32.Parse(Console.ReadLine());
+        }
+        else if (Spieler < zufall_zahl)
+        {
+            versuche = versuche + 1;
+            Console.WriteLine("Mehr...Rate nochmal: ");
+            Spieler = Int32.Parse(Console.ReadLine());
+        }
+    }
+    Console.WriteLine("Herzlichen Glückwunsch! Du hast {0} Versuche gebraucht!", versuche);
+}
+catch
+{
+    Console.WriteLine("Das war keine Zahl. Start das Programm neu.");
+}
